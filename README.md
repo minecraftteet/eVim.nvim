@@ -6,7 +6,7 @@ made for poeple who are comming from emcas to neovim
 
 
 <video controls>
-  <source src="2024-03-09 13-43-18.mp4" type="video/mp4">
+  <source src="*.mp4" type="video/mp4">
 </video>
 
 
