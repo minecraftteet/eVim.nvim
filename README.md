@@ -5,10 +5,7 @@ made for poeple who are comming from emcas to neovim
 # show off
 
 
-<video controls>
-  <source src="*.mp4" type="video/mp4">
-</video>
-
+<img src="vid.gif" />
 
 # how to installl
 linux/mac
