@@ -134,7 +134,7 @@ require("catppuccin").setup({
         light = "latte",
         dark = "mocha",
     },
-    transparent_background = true, 
+    transparent_background = false, 
     show_end_of_buffer = false, -- ss
     term_colors = false, -- sets ter
     dim_inactive = {
