@@ -39,7 +39,6 @@ require("lazy").setup({
        },
        dependencies = {
        "MunifTanjim/nui.nvim",
-      	 
        "rcarriga/nvim-notify",
     },
 },
@@ -103,9 +102,7 @@ require("lazy").setup({
   'nvimdev/dashboard-nvim',
   event = 'VimEnter',
   config = function()
-    require('dashboard').setup {
-      -- config
-    }
+    require('dashboard').setup {}
   end,
   dependencies = { {'nvim-tree/nvim-web-devicons'}}
 },
@@ -118,7 +115,19 @@ require("lazy").setup({
       "MunifTanjim/nui.nvim",
       -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     }
+},
+{ 'RaafatTurki/hex.nvim' },
+{
+    'glacambre/firenvim',
+
+    -- Lazy load firenvim
+    -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
+    lazy = not vim.g.started_by_firenvim,
+    build = function()
+        vim.fn["firenvim#install"](0)
+    end
 }
+
 -- plugins/telescope.lua:
 })
 require("lsp-colors").setup({
@@ -134,7 +143,7 @@ require("catppuccin").setup({
         light = "latte",
         dark = "mocha",
     },
-    transparent_background = false, 
+    transparent_background = true,
     show_end_of_buffer = false, -- ss
     term_colors = false, -- sets ter
     dim_inactive = {
@@ -238,6 +247,7 @@ require("mason").setup()
 require("mason-lspconfig").setup({
 	ensurde_installed = {"lua_ls", "clangd" ,"rust-analyzer",}
 })
+require 'hex'.setup()
 --rust-analyzer
 local lspconfig = require('lspconfig')
 lspconfig.lua_ls.setup({})
