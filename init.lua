@@ -16,9 +16,9 @@ vim.g.mapleader = " "
 vim.wo.number = true
 -- key bindess
 
-vim.keymap.set("n", "<leader>Td", vim.cmd.tabLast)
-vim.keymap.set("n", "<leader>Tn", vim.cmd.tabNext)
-vim.keymap.set("n", "<leader>TN", vim.cmd.tabnew)
+vim.keymap.set("n", "<leader>tn", vim.cmd.tabNext)
+vim.keymap.set("n", "<leader>tN", vim.cmd.tabnew)
+vim.keymap.set("n", "<leader>tC", vim.cmd.tabclose)
 vim.keymap.set("n", "<leader>ff", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>fz", vim.cmd.Telescope)
 vim.keymap.set("n", "<leader>Hh", vim.lsp.buf.hover, {})
@@ -31,18 +31,18 @@ require("lazy").setup({
   { "folke/neoconf.nvim", cmd = "Neoconf" },
   "folke/neodev.nvim",
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-  {
-    "folke/noice.nvim",
-      event = "VeryLazy",
-       opts = {
-       -- add any options here
-       },
-       dependencies = {
-       "MunifTanjim/nui.nvim",
-       "rcarriga/nvim-notify",
-    },
-},
-    {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
+--  {
+--  "folke/noice.nvim",
+--    event = "VeryLazy",
+--     opts = {
+--     -- add any options here
+--     },
+--     dependencies = {
+--     "MunifTanjim/nui.nvim",
+--     "rcarriga/nvim-notify",
+--  },
+--}
+  {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
 {
     'nvim-telescope/telescope.nvim', tag = '0.1.5',
 -- or                              , branch = '0.1.x',
@@ -126,7 +126,8 @@ require("lazy").setup({
     build = function()
         vim.fn["firenvim#install"](0)
     end
-}
+},
+{"altermo/nxwm"}
 
 -- plugins/telescope.lua:
 })
@@ -143,7 +144,7 @@ require("catppuccin").setup({
         light = "latte",
         dark = "mocha",
     },
-    transparent_background = true,
+    transparent_background = false,
     show_end_of_buffer = false, -- ss
     term_colors = false, -- sets ter
     dim_inactive = {
